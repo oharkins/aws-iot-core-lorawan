@@ -4,7 +4,7 @@ LoRaWAN devices often encode transmitted data in a binary format. Doing so incre
 
 This repository contains resources for you to learn how to transform binary payloads for your LoRaWAN device. These resources include:
 
-- Python decoder for a sample device, to be deployed in an [AWS Lambda layer](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html) so that it may be used in any of your Python lambda functions.
+- Node.js decoder for a sample device, to be deployed in an [AWS Lambda layer](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html) so that it may be used in any of your Node.js lambda functions.
 
 - An [AWS IoT Rule](#example-for-transforming-a-lorawan-binary-payload) for transforming incoming LoRaWAN binary payloads and acting on the resulting JSON. In this sample, the IoT Rule uses a [republish action](https://docs.aws.amazon.com/iot/latest/developerguide/republish-rule-action.html) to republish transformed payload to another MQTT topic. You can use a similar approach to customize the rule actions for the requirements of your application.
 
