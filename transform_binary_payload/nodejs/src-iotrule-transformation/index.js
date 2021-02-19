@@ -16,9 +16,9 @@
 
 decoders = {}
 
-//const DECODER_PATH = "/opt/node/"
+const DECODER_PATH = "/opt/"
 // Uncomment the next line to execute tests
-const DECODER_PATH = "../src-payload-decoders/"
+//const DECODER_PATH = "../src-payload-decoders/"
 exports.handler = async function (event, context) {
     console.log('## EVENT: ' + JSON.stringify(event))
 
@@ -53,10 +53,10 @@ exports.handler = async function (event, context) {
             throw ("Error decoding:" + decoded.errors)
         }
 
-        result = decoded.data
-        result.status = 200
-        result.decoder_name = payload_decoder_name
-        console.log("Returning result " + JSON.stringify(result))
+        var result = decoded;
+        result.status = 200;
+        result.decoder_name = payload_decoder_name;
+        console.log("Returning result " + JSON.stringify(result));
         return result;
     } catch (e) {
         // Perform exception handling
