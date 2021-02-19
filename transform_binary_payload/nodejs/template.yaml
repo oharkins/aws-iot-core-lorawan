@@ -31,7 +31,7 @@ Resources:
     Properties:
       CodeUri: src-iotrule-transformation
       Handler: index.handler
-      Runtime: nodejs14.x
+      Runtime: nodejs12.x
       Layers:
         - Ref: LoRaWANPayloadDecoderLayer
       Environment:
@@ -48,7 +48,7 @@ Resources:
       Description: Payload decoders for LoRaWAN devices
       ContentUri: src-payload-decoders
       CompatibleRuntimes:
-        - nodejs14.x
+        - nodejs12.x
       RetentionPolicy: Retain
 
   ############################################################################################
