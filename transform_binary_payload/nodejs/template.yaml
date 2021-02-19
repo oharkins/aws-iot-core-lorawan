@@ -30,7 +30,7 @@ Resources:
     Name: !Sub "${AWS::StackName}-TransformLoRaWANBinaryPayloadFunction"
     Properties:
       CodeUri: src-iotrule-transformation
-      Handler: app.handler
+      Handler: index.handler
       Runtime: nodejs14.x
       Layers:
         - Ref: LoRaWANPayloadDecoderLayer

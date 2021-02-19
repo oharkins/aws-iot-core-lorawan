@@ -1,3 +1,7 @@
+function decodeUplink(input) {
+    return Decoder(input.bytes,input.fPort);
+}
+
 //The function is :
 function Decoder(bytes, port) {
   // Decode an uplink message from a buffer
@@ -72,4 +76,4 @@ function Decoder(bytes, port) {
   };
 }
 
-module.exports = { Decoder };
+module.exports = { decodeUplink };
