@@ -53,10 +53,12 @@ exports.handler = async function (event, context) {
             throw ("Error decoding:" + decoded.errors)
         }
 
-        var result = decoded;
+        var result ={};
+        result.payload = decoded;
         result.status = 200;
         result.decoder_name = payload_decoder_name;
         console.log("Returning result " + JSON.stringify(result));
+        
         return result;
     } catch (e) {
         // Perform exception handling
@@ -68,12 +70,6 @@ exports.handler = async function (event, context) {
             "decoder_name": payload_decoder_name
         }
         return result;
-
-
     }
 
 }
-
-
-
-
