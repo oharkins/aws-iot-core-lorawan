@@ -18,18 +18,18 @@ function Decoder(bytes, port) {
            }[bytes[6]&0x7F],
            
            //Battery,units:V
-           BatV:((bytes[0]<<8 | bytes[1]) & 0x3FFF)/1000,
+           BatV:parseFloat(((bytes[0]<<8 | bytes[1]) & 0x3FFF)/1000),
            
            //SHT20,temperature,units:â„ƒ
-           TempC_SHT:((bytes[2]<<24>>16 | bytes[3])/100).toFixed(2),
+           TempC_SHT:parseFloat(((bytes[2]<<24>>16 | bytes[3])/100).toFixed(2)),
            
            //SHT20,Humidity,units:%
-           Hum_SHT:((bytes[4]<<8 | bytes[5])/10).toFixed(1),
+           Hum_SHT:parseFloat(((bytes[4]<<8 | bytes[5])/10).toFixed(1)),
            
            //DS18B20,temperature,units:â„ƒ
            TempC_DS:
            {
-             "1":((bytes[7]<<24>>16 | bytes[8])/100).toFixed(2),
+             "1":parseFloat(((bytes[7]<<24>>16 | bytes[8])/100).toFixed(2)),
            }[bytes[6]&0xFF],       
            
            //Exti pin level,PA4
@@ -47,13 +47,13 @@ function Decoder(bytes, port) {
            //BH1750,illumination,units:lux
            ILL_lux:
            {
-             "5":bytes[7]<<8 | bytes[8],
+             "5":parseFloat(bytes[7]<<8 | bytes[8]),
            }[bytes[6]&0x7F],  
     
             //ADC,PA4,units:V
             ADC_V:
            {
-             "6":(bytes[7]<<8 | bytes[8])/1000,
+             "6":parseFloat((bytes[7]<<8 | bytes[8])/1000),
            }[bytes[6]&0x7F],  
            
             //Exti count,PA4,units:times
