@@ -72,13 +72,13 @@ Resources:
                               {"PayloadDecoderName": "${ParamBinaryDecoderName}", 
                               "PayloadData":PayloadData, 
                               "WirelessDeviceId": WirelessDeviceId, 
-                               "WirelessMetadata": WirelessMetadata}) as transformed_payload, 
-                    WirelessDeviceId as transformed_payload.WirelessDeviceId,                                   
-                    WirelessMetadata.LoRaWAN.DevEui as transformed_payload.DevEui,
-                    WirelessDeviceId as lns_payload.WirelessDeviceId, 
-                    WirelessMetadata as lns_payload.WirelessMetadata,
-                    PayloadData as lns_payload.PayloadData,
-                    timestamp() as timestamp
+                               "WirelessMetadata": WirelessMetadata}) as decoded, 
+                               WirelessDeviceId as WirelessDeviceId, 
+                               WirelessMetadata.LoRaWAN.DevEui as dev_eui, 
+                               WirelessDeviceId as lns_payload.WirelessDeviceId, 
+                               WirelessMetadata as lns_payload.WirelessMetadata, 
+                               PayloadData as payload, 
+                               timestamp() as timestamp
           - { LambdaARN: !GetAtt TransformLoRaWANBinaryPayloadFunction.Arn }
         Actions:
           - Republish:
